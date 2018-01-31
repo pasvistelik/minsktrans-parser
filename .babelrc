@@ -1,0 +1,20 @@
+{
+  "presets": [
+    "es2015",
+    ["env", {
+      "targets": {
+        "browsers": ["> 95%"],
+        "node": "current"
+      }
+    }]
+  ],
+  "plugins": [
+    "transform-class-properties", 
+    "babel-polyfill", 
+    "transform-regenerator",
+    ["transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }]
+  ]
+}
