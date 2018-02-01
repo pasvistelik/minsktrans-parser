@@ -96,7 +96,7 @@ class DataProvider {
             currentRoute.ways.push({
                 local_id: parseInt(local_id),
                 way_name,
-                stations_ids_list: stations_ids_list.split(',').map(item => parseInt(item)).sort(),
+                stations_ids_list: stations_ids_list.split(',').map(item => parseInt(item)),
                 //stations_names: null,
                 trips_by_days: []
             });
