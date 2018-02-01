@@ -9,12 +9,13 @@ class DataProvider {
     static async getStations() {
         let result = [];
         const lines = await getLinesForParsing(config.stationsPath, true);
-
+        let lastUsedStationName;
         for (const line of lines) {
             const [local_id, name, lng, lat] = config.stationsRegex.exec(line).slice(1);
+            if (name.length !== 0) lastUsedStationName = name;
             result.push({
                 local_id: parseInt(local_id), 
-                name, 
+                name: lastUsedStationName, 
                 lat: parseInt(lat) / 100000, 
                 lng: parseInt(lng) / 100000
             });
