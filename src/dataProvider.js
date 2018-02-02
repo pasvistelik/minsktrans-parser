@@ -1,4 +1,4 @@
-//import PolylineEncoder from '@mapbox/polyline';
+import PolylineEncoder from '@mapbox/polyline';
 import fetch from 'node-fetch';
 
 import decodeTimes from './decodeTimes';
@@ -106,6 +106,24 @@ class DataProvider {
 
         //result.sort(localIdsComparator);
         return routes;
+    }
+
+
+    static async getRoutesPolylines() {
+        let result = [];
+        const lines = await getLinesForParsing(config.shapesPath, false);
+        let local_id;
+        lines.forEach((line, index) => {
+            if (index % 2 === 0) local_id = parseInt(line);
+            else {
+                result.push({
+                    local_id,
+                    polyline: PolylineEncoder.decode(line).map(item => {return {lat:item[0], lng:item[1]}})
+                });
+            }
+        });
+        result.sort(localIdsComparator);
+        return result;
     }
 }
 export default DataProvider;

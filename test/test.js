@@ -7,9 +7,11 @@ import DataProvider from '../lib/dataProvider';
     let stations = await DataProvider.getStations();
     let routes = await DataProvider.getRoutes();
     let times = await DataProvider.getTimes();
+    
+    let routesPolylines = await DataProvider.getRoutesPolylines();
 
     //console.log(times[0].times);
-    //console.log(JSON.stringify(times.slice(0,10)));
+    //console.log(JSON.stringify(routesPolylines));
 })();
 
 
