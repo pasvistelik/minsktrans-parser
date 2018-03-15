@@ -2,7 +2,7 @@
 Минсктранс - Парсер остановок, маршрутов и расписания.
 ## Usage example:
 ```js
-import DataProvider from '../lib/dataProvider';
+import DataProvider from 'minsktrans-parser';
 
 let stations = await DataProvider.getStations();
 let routes = await DataProvider.getRoutes();
