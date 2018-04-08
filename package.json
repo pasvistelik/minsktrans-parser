@@ -1,6 +1,6 @@
 {
   "name": "minsktrans-parser",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "lib/dataProvider.js",
   "scripts": {
     "build": "npm update && babel src --out-dir lib",
@@ -32,7 +32,8 @@
   "dependencies": {
     "@mapbox/polyline": "^0.2.0",
     "babel-core": "^6.26.0",
-    "body-parser": "^1.18.2"
+    "body-parser": "^1.18.2",
+    "array-each-slice": "^1.0.1"
   },
   "description": ""
 }
