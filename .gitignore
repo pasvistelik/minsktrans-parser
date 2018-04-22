@@ -3,6 +3,7 @@ node_modules
 *.cmd
 gps.ico
 test-compiled
+json
 
 # Windows image file caches
 Thumbs.db

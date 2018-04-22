@@ -24,7 +24,7 @@ export default class DataProvider {
 
   static async getTimes() {
     return (await getLinesForParsing(config.timesPath, false))
-      .forEach(encoded_line => {
+      .map(encoded_line => {
         const index = encoded_line.indexOf(",");
         const way_id = parseInt(encoded_line.substr(0, index));
         const decoded_data= decodeTimes(encoded_line.substr(index + 1));
@@ -33,7 +33,7 @@ export default class DataProvider {
 
         let trips_by_days = Array.from(new Set(decoded_data.workdays)).map(function(element) {
           return {
-            days_of_week: element.replace('7','0').split('').map(item => parseInt(item)).sort(),
+            days_of_week: element.replace('7','0').split('').map(parseInt).sort(),
             tmp_days_of_week_str: element,
             arrives: []
           };
@@ -92,7 +92,7 @@ export default class DataProvider {
       currentRoute.ways.push({
         local_id: parseInt(local_id),
         way_name,
-        stations_ids_list: stations_ids_list.split(',').map(item => parseInt(item)),
+        stations_ids_list: stations_ids_list.split(',').map(parseInt),
         trips_by_days: []
       });
     });
