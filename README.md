@@ -1,5 +1,5 @@
 # minsktrans-parser
-Минсктранс - Парсер остановок, маршрутов и расписания.
+Loads and parses lists of stations, routes, timetables and ways-polylines of the Minsk public transport (Minsktrans company: bus, trolleybus, tram and metro).
 ## Usage example:
 
 ```sh
@@ -15,7 +15,7 @@ const times = await DataProvider.getTimes();
 const routesPolylines = await DataProvider.getRoutesPolylines();
 ```
 
-You also can run ``` npm run save_json ``` to save this objects as *.json files.
+You also can run ``` npm run save_json ``` to save this objects as \*.json files.
 
 ## Results examples
 ### Stations object
@@ -41,8 +41,7 @@ You also can run ``` npm run save_json ``` to save this objects as *.json files.
       {
         local_id: 214500,
         way_name: "ДС Веснянка - Вокзал",
-        stations_ids_list: [15846, 54756, 54757, ...],
-        trips_by_days: []
+        stations_ids_list: [15846, 54756, 54757, ...]
       },
       ...
     ]
@@ -59,7 +58,8 @@ You also can run ``` npm run save_json ``` to save this objects as *.json files.
       {
         days_of_week: [0,6],
         arrives: [
-          [340,355,370,385,400,412,...], // times in minutes for first station of way
+          [340, 355, 370, 385, 400, 412, ...], // times (in minutes) of arrives to first station of way
+          [342, 357, 372, 387, 402, 414, ...], // to second station of way, ...
           ...
         ]
       },
@@ -76,8 +76,8 @@ You also can run ``` npm run save_json ``` to save this objects as *.json files.
     local_id: 52524,
     polyline:
     [
-      {lat: 53.90686,lng: 27.43751},
-      {lat: 53.90632,lng: 27.44737},
+      { lat: 53.90686, lng: 27.43751 },
+      { lat: 53.90632, lng: 27.44737 },
       ...
     ]
   },
